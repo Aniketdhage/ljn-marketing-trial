@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0804;
+  --foreground: #F5F0E8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --color-gold: #C9A96E;
+  --color-gold-light: #E8D5B0;
+  --color-gold-dark: #8B6914;
+  --color-ivory: #F5F0E8;
+  --color-charcoal: #0A0804;
+  --color-card-bg: #1A1510;
+  --color-muted: #A89880;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), 'Inter', Arial, sans-serif;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0804; }
+::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #E8D5B0; }
+
+/* Playfair Display font class */
+.font-playfair {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A96E 0%, #E8D5B0 45%, #C9A96E 75%, #8B6914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, #9e7a42, #C9A96E 30%, #E8D5B0 60%, #C9A96E 80%, #9e7a42);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: #0A0804;
+  cursor: pointer;
+  transition: background-position 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.btn-gold:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 4px 30px rgba(201, 169, 110, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Gold outline button */
+.btn-gold-outline {
+  background: transparent;
+  color: #C9A96E;
+  border: 1px solid #C9A96E;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.btn-gold-outline:hover {
+  background: rgba(201, 169, 110, 0.08);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.18);
+}
+
+/* Luxury dark card */
+.luxury-card {
+  background: #1A1510;
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.luxury-card:hover {
+  border-color: rgba(201, 169, 110, 0.38);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 169, 110, 0.08), inset 0 1px 0 rgba(201, 169, 110, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Gold divider line */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.35), transparent);
+  width: 100%;
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #C9A96E;
+  font-family: var(--font-inter), 'Inter', Arial, sans-serif;
+}
+
+/* Input base */
+.input-luxury {
+  width: 100%;
+  background: #120F0A;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  color: #F5F0E8;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: var(--font-inter), 'Inter', Arial, sans-serif;
+}
+.input-luxury::placeholder { color: rgba(168, 152, 128, 0.4); }
+.input-luxury:focus { border-color: rgba(201, 169, 110, 0.45); }
