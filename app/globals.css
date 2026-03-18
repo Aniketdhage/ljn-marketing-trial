@@ -131,3 +131,43 @@ body {
 }
 .input-luxury::placeholder { color: rgba(168, 152, 128, 0.4); }
 .input-luxury:focus { border-color: rgba(201, 169, 110, 0.45); }
+
+/* ── Light theme overrides (used in v2) ── */
+.light-theme .text-gold-gradient {
+  background: linear-gradient(135deg, #7a5820 0%, #b8924a 40%, #9e7a42 70%, #6b5010 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.light-theme .section-label { color: #9e7a42; }
+.light-theme .luxury-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(180, 140, 80, 0.22);
+  box-shadow: 0 2px 16px rgba(60, 40, 10, 0.07), 0 1px 4px rgba(60, 40, 10, 0.05);
+}
+.light-theme .luxury-card:hover {
+  border-color: rgba(180, 140, 80, 0.5);
+  box-shadow: 0 12px 44px rgba(60, 40, 10, 0.13), 0 2px 8px rgba(60, 40, 10, 0.06);
+  transform: translateY(-3px);
+}
+.light-theme .divider-gold {
+  background: linear-gradient(90deg, transparent, rgba(160, 120, 60, 0.45), transparent);
+}
+.light-theme .btn-gold-outline {
+  color: #7a5820;
+  border-color: #b8924a;
+}
+.light-theme .btn-gold-outline:hover {
+  background: rgba(201, 169, 110, 0.12);
+  color: #5c4010;
+}
+.light-theme .input-luxury {
+  background: #FDFAF6;
+  border: 1.5px solid rgba(180, 140, 80, 0.35);
+  color: #1A1208;
+}
+.light-theme .input-luxury::placeholder { color: rgba(77, 60, 44, 0.4); }
+.light-theme .input-luxury:focus {
+  border-color: #C9A96E;
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+}
