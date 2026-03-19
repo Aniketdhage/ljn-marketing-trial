@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Register font-display and font-body as Tailwind utilities for v4 */
+@theme {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Montserrat', Arial, sans-serif;
+}
+
+/* ─── All CSS variables scoped to the .v4-theme wrapper ─── */
+.v4-theme {
+  /* Raw HSL parts (for composing with hsl()) */
+  --background: 20 14% 4%;
+  --foreground: 40 33% 92%;
+
+  --card: 20 12% 8%;
+  --card-foreground: 40 33% 92%;
+
+  --popover: 20 14% 6%;
+  --popover-foreground: 40 33% 92%;
+
+  --primary: 43 72% 55%;
+  --primary-foreground: 20 14% 4%;
+
+  --secondary: 20 10% 14%;
+  --secondary-foreground: 40 33% 92%;
+
+  --muted: 20 8% 16%;
+  --muted-foreground: 30 10% 55%;
+
+  --accent: 43 72% 55%;
+  --accent-foreground: 20 14% 4%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 30 12% 18%;
+  --input: 30 12% 18%;
+  --ring: 43 72% 55%;
+
+  --radius: 0.5rem;
+
+  --gold: 43 72% 55%;
+  --gold-light: 43 80% 70%;
+  --gold-dark: 43 60% 40%;
+  --champagne: 38 40% 85%;
+  --onyx: 20 14% 4%;
+  --velvet: 20 12% 8%;
+
+  --sidebar-background: 20 12% 8%;
+  --sidebar-foreground: 40 33% 92%;
+  --sidebar-primary: 43 72% 55%;
+  --sidebar-primary-foreground: 20 14% 4%;
+  --sidebar-accent: 20 10% 14%;
+  --sidebar-accent-foreground: 40 33% 92%;
+  --sidebar-border: 30 12% 18%;
+  --sidebar-ring: 43 72% 55%;
+
+  /* Override Tailwind v4 --color-* variables so utility classes like
+     bg-background, text-primary, border-border etc. use v4 colours */
+  --color-background: hsl(20 14% 4%);
+  --color-foreground: hsl(40 33% 92%);
+  --color-card: hsl(20 12% 8%);
+  --color-card-foreground: hsl(40 33% 92%);
+  --color-popover: hsl(20 14% 6%);
+  --color-popover-foreground: hsl(40 33% 92%);
+  --color-primary: hsl(43 72% 55%);
+  --color-primary-foreground: hsl(20 14% 4%);
+  --color-secondary: hsl(20 10% 14%);
+  --color-secondary-foreground: hsl(40 33% 92%);
+  --color-muted: hsl(20 8% 16%);
+  --color-muted-foreground: hsl(30 10% 55%);
+  --color-accent: hsl(43 72% 55%);
+  --color-accent-foreground: hsl(20 14% 4%);
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-border: hsl(30 12% 18%);
+  --color-input: hsl(30 12% 18%);
+  --color-ring: hsl(43 72% 55%);
+
+  /* Base styles */
+  background-color: hsl(20 14% 4%);
+  color: hsl(40 33% 92%);
+  font-family: 'Montserrat', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply border colour to all elements inside the wrapper */
+.v4-theme *,
+.v4-theme *::before,
+.v4-theme *::after {
+  border-color: hsl(30 12% 18%);
+}
+
+/* Heading font */
+.v4-theme h1,
+.v4-theme h2,
+.v4-theme h3,
+.v4-theme h4,
+.v4-theme h5,
+.v4-theme h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ─── Custom utility classes ─── */
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(43 72% 55%), hsl(43 80% 70%), hsl(43 60% 40%));
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, hsl(43 80% 70%), hsl(43 72% 55%), hsl(43 80% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: hsl(20 12% 8% / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(43 72% 55% / 0.15);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      hsl(43 72% 55% / 0.1) 37%,
+      transparent 63%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px hsl(43 72% 55% / 0.2), 0 0 60px hsl(43 72% 55% / 0.1);
+  }
+
+  .text-shadow-luxury {
+    text-shadow: 0 2px 20px hsl(43 72% 55% / 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Scrollbar — scoped to pages that carry .v4-theme ─── */
+/* Main document scrollbar (applied when v4 layout is active) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(20 14% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(43 72% 55% / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(43 72% 55% / 0.5);
+}
